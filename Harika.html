@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Portfolio</title>
+  <style>
+    /* General Styles */
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #fafafa;
+      color: #333;
+      line-height: 1.6;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    /* Header */
+    header {
+      background: #ffffff;
+      color: #333;
+      padding: 60px 0;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      animation: fadeIn 1s ease-out;
+    }
+
+    header h1 {
+      font-size: 48px;
+      margin: 0;
+      font-weight: 700;
+      color: #2c3e50;
+      animation: slideIn 1s ease-out;
+    }
+
+    header p {
+      font-size: 20px;
+      margin: 10px 0 0;
+      font-weight: 500;
+      color: #7f8c8d;
+    }
+
+    /* Navigation */
+    nav {
+      background: #ffffff;
+      padding: 10px 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    nav ul li a {
+      color: #2c3e50;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #3498db;
+    }
+
+    /* About Section */
+    #about {
+      padding: 60px 0;
+      background: #ffffff;
+      animation: fadeIn 1.5s ease-out;
+    }
+
+    .about-content {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .profile-photo {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      border: 5px solid #3498db;
+      transition: transform 0.5s ease;
+    }
+
+    .profile-photo:hover {
+      transform: scale(1.1);
+    }
+
+    .about-text {
+      flex: 1;
+    }
+
+    .about-text h2 {
+      font-size: 36px;
+      margin-bottom: 20px;
+      color: #2c3e50;
+      animation: slideIn 1.2s ease-out;
+    }
+
+    .about-text p {
+      font-size: 18px;
+      line-height: 1.8;
+      color: #7f8c8d;
+    }
+
+    /* Resume Section */
+    #resume {
+      padding: 60px 0;
+      background: #ffffff;
+      animation: fadeIn 2s ease-out;
+    }
+
+    .resume-card {
+      background: #fafafa;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      margin-bottom: 30px;
+      transition: transform 0.3s ease;
+    }
+
+    .resume-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .resume-card h3 {
+      color: #2c3e50;
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .resume-card ul {
+      padding-left: 20px;
+      list-style-type: disc;
+    }
+
+    .resume-card ul li {
+      margin-bottom: 8px;
+      color: #7f8c8d;
+      font-size: 16px;
+    }
+
+    /* Projects Section */
+    #projects {
+      padding: 60px 0;
+      background: #fafafa;
+      animation: fadeIn 2.5s ease-out;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    .project-card {
+      background: #ffffff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .project-card h3 {
+      margin: 0 0 10px;
+      color: #2c3e50;
+    }
+
+    .project-card p {
+      margin: 0;
+      color: #7f8c8d;
+    }
+
+    /* Skills Section */
+    #skills {
+      padding: 60px 0;
+      background: #ffffff;
+      animation: fadeIn 3s ease-out;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 20px;
+    }
+
+    .skill-card {
+      background: #fafafa;
+      padding: 20px;
+      text-align: center;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-10px);
+    }
+
+    /* Contact Section */
+    #contact {
+      padding: 60px 0;
+      background: #fafafa;
+      text-align: center;
+      animation: fadeIn 3.5s ease-out;
+    }
+
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .contact-button {
+      display: inline-block;
+      padding: 10px 20px;
+      background: #3498db;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+
+    .contact-button:hover {
+      background: #2980b9;
+    }
+
+    .contact-info {
+      margin-top: 20px;
+      font-size: 18px;
+      color: #7f8c8d;
+    }
+
+    /* Footer */
+    footer {
+      background: #2c3e50;
+      color: #fff;
+      text-align: center;
+      padding: 20px 0;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes slideIn {
+      from {
+        transform: translateX(-100%);
+      }
+      to {
+        transform: translateX(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <h1>Harika Manchineella</h1>
+      <p>Data Scientist</p>
+    </div>
+  </header>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="container">
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#resume">Resume</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- About Section -->
+  <section id="about">
+    <div class="container">
+      <h2>About Me</h2>
+      <div class="about-content">
+        <img src="harika.jpeg" alt="Profile Photo" class="profile-photo">
+        <div class="about-text">
+          <p>
+            Master’s student in Data Science with 1 year of research and practical experience in Python programming. Demonstrated proficiency in programming languages such as Python, C, and Java, along with expertise in statistical modeling, machine learning, and data visualization. Actively seeking opportunities to translate academic research into impactful solutions in a dynamic, data-driven environment.
+          </p>
+          <p>
+            <strong>Technical Skills:</strong> Python, SQL, TensorFlow, Tableau, AWS.  
+            <strong>Certifications:</strong> Google Data Analytics, AWS Certified Machine Learning – Specialty.  
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Resume Section -->
+  <section id="resume">
+    <div class="container">
+      <h2>Resume</h2>
+      <div class="resume-card">
+        <h3>Education</h3>
+        <p><strong>Master of Science, Data Science</strong> - University of New Haven, Connecticut (Aug 2024 – May 2026)</p>
+        <p><strong>Bachelor of Technology, Electrical and Electronics Engineering</strong> - Vasireddy Venkatadri Institute of Technology, India (Jun 2020 – Apr 2024)</p>
+      </div>
+
+      <div class="resume-card">
+        <h3>Objective</h3>
+        <p>Master’s student in Data Science with 1 year of research and practical experience in Python programming. Actively seeking opportunities to translate academic research into impactful solutions in a dynamic, data-driven environment.</p>
+      </div>
+
+      <div class="resume-card">
+        <h3>Technical Skills</h3>
+        <ul>
+          <li><strong>Programming:</strong> C, Python, Java</li>
+          <li><strong>Data Analysis:</strong> Power BI, SQL</li>
+          <li><strong>Machine Learning:</strong> TensorFlow, Scikit-learn</li>
+          <li><strong>Cloud & Databases:</strong> AWS, MySQL, MongoDB</li>
+        </ul>
+      </div>
+
+      <div class="resume-card">
+        <h3>Work Experience</h3>
+        <p><strong>Data Science Intern</strong> - Brain O Vision (Remote)</p>
+        <ul>
+          <li>Conducted data analysis and visualization using Python and Power BI, delivering actionable insights for business decision-making.</li>
+          <li>Developed machine learning models to predict outcomes based on historical data, achieving an accuracy of 92%.</li>
+        </ul>
+      </div>
+
+      <div class="resume-card">
+        <h3>Projects</h3>
+        <p><strong>Software Quality Predictions:</strong> Developed a machine learning model to predict software quality using historical data, achieving 90% accuracy.</p>
+        <p><strong>IoT-Based Fault Detection:</strong> Built a system using IoT to detect interruptions in electric poles for faster fault resolution in power transmission.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects">
+    <div class="container">
+      <h2>Projects</h2>
+      <div class="project-grid">
+        <div class="project-card">
+          <h3>Data Science Internship Project</h3>
+          <p>Developed predictive models and performed data analysis using Python for Brain O Vision's business operations.</p>
+        </div>
+
+        
+
+        <div class="project-card">
+          <h3>IoT Fault Detection System</h3>
+          <p>Designed an IoT-based fault detection system, significantly reducing the time for power failure resolution.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills">
+    <div class="container">
+      <h2>Skills</h2>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <h3>Python</h3>
+        </div>
+        <div class="skill-card">
+          <h3>Java</h3>
+        </div>
+
+        <div class="skill-card">
+          <h3>Data Visualization</h3>
+        </div>
+        <div class="skill-card">
+          <h3>Power BI</h3>
+        </div>
+
+        <div class="skill-card">
+          <h3>Machine Learning</h3>
+        </div>
+
+        <div class="skill-card">
+          <h3>SQL</h3>
+        </div>
+
+        <div class="skill-card">
+          <h3>AWS</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <div class="container">
+      <h2>Contact Me</h2>
+      <div class="contact-links">
+        <a href="mailto:harika@example.com" class="contact-button">Email</a>
+        <a href="https://www.linkedin.com/in/harika-manchineella" class="contact-button">LinkedIn</a>
+        <a href="https://github.com/harikamanchineella" class="contact-button">GitHub</a>
+      </div>
+      <div class="contact-info">
+        <p>Phone: +1 (959)206-4139 </p>
+      </div>
+    </div>
+  </section>
+
+  
+</body>
+</html>
